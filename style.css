@@ -1,11 +1,14 @@
-html {
+html,body{
   background-color: white;
   font-size: 15px;
+  overflow: hidden;
 }
-body{
+main{
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100vw;
+  height: 100vh;
 }
 
 div#main_field{
