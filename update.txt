@@ -1,0 +1,5 @@
+2023/4/6 重新開始
+2023/4/8 換頁機制完成
+2023/4/9 nav_nav cursor
+  nav_nav 用很粗暴的css控制，感覺要再優化
+  cursor做了簡易click-fade-out效果，不過本體還沒想好

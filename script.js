@@ -8,7 +8,10 @@ const transition_duration = 600;
 var canscroll = true;
 var cantouchmove = 0;
 var mainPos=0;
-
+//#region initialize
+nav_display(mainPos);
+ms_display();
+//#endregion
 window.addEventListener('wheel',e =>{
   if(canscroll){
     canscroll = false;
@@ -23,8 +26,8 @@ window.addEventListener('wheel',e =>{
       }
       
     }
-    
-    main.style.top = `${mainPos*-100}vh`;
+    nav_display(mainPos);
+    ms_display();
     setTimeout(()=>{
       canscroll = true;
     },transition_duration);
@@ -47,25 +50,33 @@ window.addEventListener('touchmove',e=>{
         mainPos--;
       }
     }
-    main.style.top = `${mainPos*-100}px`;
+    main.style.top = `${mainPos*-100}vh`;
     setTimeout(()=>{
       cantouchmove = 0;
     },transition_duration);
   }
-})
+});
 nav_li.forEach(e => {
   e.addEventListener('click',()=>{
-    nav_nav.className = "";
-    nav_nav.className = `in_${e.id}`;
+    mainPos = parseInt(e.className.slice(-1))
+    nav_display(mainPos);
+    ms_display();
+  })
+  e.addEventListener('mouseover',()=>{
+    nav_display(parseInt(e.className.slice(-1)));
+  })
+  e.addEventListener('mouseleave',()=>{
+    nav_display(mainPos);
   })
 });
-
-
-function main_dispaly_func(){
-  if(mainPos == 0){
-    nav.style.display = "none";
-  }
+function nav_display(e){
+  if(e==mainPos){nav_nav.style.backgroundColor = "aqua"}else{nav_nav.style.backgroundColor = "red"}
+  nav_nav.style.top = `calc(2rem * ${e} + 6vh*${e*2+1})`
 }
+function ms_display(){
+  main.style.top = `${mainPos*-100}vh`;
+}
+
 document.addEventListener('mousedown' , e =>{
   if(e.button == 1){
     e.preventDefault();
