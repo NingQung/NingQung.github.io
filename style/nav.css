@@ -43,42 +43,52 @@ div#nav_nav{
 div#nav_nav.in_home{
   top: 6vh;
   background-color: aqua;
+  box-shadow: 2px 2px 10px 1px aqua;
 }
 div#nav_nav.in_profile{
   top: calc(2rem * 1 + 6vh*3);
   background-color: aqua;
+  box-shadow: 2px 2px 10px 1px aqua;
 }
 div#nav_nav.in_project{
   top: calc(2rem * 2 + 6vh*5);
   background-color: aqua;
+  box-shadow: 2px 2px 10px 1px aqua;
 }
 div#nav_nav.in_dailyLog{
   top: calc(2rem * 3 + 6vh*7);
   background-color: aqua;
+  box-shadow: 2px 2px 10px 1px aqua;
 }
 div#nav_nav.in_contect{
   top: calc(2rem * 4 + 6vh*9);
   background-color: aqua;
+  box-shadow: 2px 2px 10px 1px aqua;
 }
 li#home:hover ~ div#nav_nav:not(.in_home){
   top: 6vh;
   background-color: red;
+  box-shadow: 2px 2px 10px 1px red;
 }
 li#profile:hover ~ div#nav_nav:not(.in_profile){
   top: calc(2rem * 1 + 6vh*3);
   background-color: red;
+  box-shadow: 2px 2px 10px 1px red;
 }
 li#project:hover ~ div#nav_nav:not(.in_project){
   top: calc(2rem * 2 + 6vh*5);
   background-color: red;
+  box-shadow: 2px 2px 10px 1px red;
 }
 li#dailyLog:hover ~ div#nav_nav:not(.in_dailyLog){
   top: calc(2rem * 3 + 6vh*7);
   background-color: red;
+  box-shadow: 2px 2px 10px 1px red;
 }
 li#contect:hover ~ div#nav_nav:not(.in_contect){
   top: calc(2rem * 4 + 6vh*9);
   background-color: red;
+  box-shadow: 2px 2px 10px 1px red;
 }
 div#navFooter{
   position: absolute;
