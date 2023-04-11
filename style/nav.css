@@ -1,7 +1,6 @@
 nav{
   width: 10vw;
   height: 100vh;
-  background-color: yellow;
   position: fixed;
   top: 0;
   left: 3vw;
@@ -18,11 +17,12 @@ div#nav_ol_container{
 nav ol li{
   height: 2rem;
   font-size: 1rem;
+  color: white;
+  text-shadow: 2px 2px 5px white;
   display: flex;
   align-items: center;
   position: relative;
   padding: 6vh 0 6vh 2rem;
-  cursor: pointer;
   transition: padding 300ms;
   z-index: 2;
 }
@@ -34,6 +34,7 @@ div#nav_nav{
   width: 5px;
   height: 2rem;
   box-sizing: border-box;
+  box-shadow: 2px 2px 10px 1px white;
   border-radius: 10px;
   position: absolute;
   transition: all 0.2s;

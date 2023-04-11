@@ -1,0 +1,36 @@
+div#cursor_circle{
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  border-radius: 3rem;
+  border: 3px solid white;
+  transform: translate(-50%,-50%) scale(0);
+  opacity: 1;
+  transform-origin: center center;
+  pointer-events: none;
+}
+div#cursor_circle.cursor_active{
+  opacity: 0;
+  transform: translate(-50%,-50%) scale(1);
+  transition: transform 400ms,opacity 400ms;
+}
+div.cursorbar{
+  width: 30px;
+  height: 5px;
+  background-color: #b7c7fa;
+  border-radius: 5px;
+  position: fixed;
+  transform-origin: left;
+  transform: rotate(30deg);
+  pointer-events: none;
+  will-change: auto;
+}
+div#cursorbar_0{
+  background: linear-gradient(90deg, rgb(255,255,255) 0%, rgb(173,241,255) 100%);;
+}
+div#cursorbar_1{
+  background: linear-gradient(90deg, rgb(173,241,255) 0%, rgb(88,227,255) 100%);;
+}
+div#cursorbar_2{
+  background: linear-gradient(90deg, rgb(88,227,255) 0%, rgb(0,212,255) 100%);;
+}
