@@ -2,7 +2,7 @@ const main = document.querySelector("main");
 const nav = document.querySelector("nav");
 const nav_li = document.querySelectorAll("li");
 const nav_nav = document.getElementById("nav_nav");
-const d_mainField = document.getElementById("main_field_0");
+const mainSec = document.querySelectorAll("main section");
 const cursor_circle = document.getElementById("cursor_circle");
 const cursor_bar = document.querySelectorAll("div.cursorbar");
 const transition_duration = 600;
@@ -10,8 +10,8 @@ var canscroll = true;
 var cantouchmove = 0;
 var mainPos=0;
 //#region initialize
-nav_display(mainPos);
-ms_display();
+nav_display("home");
+ms_display(0);
 //#endregion
 window.addEventListener('wheel',e =>{
   if(canscroll){
@@ -27,14 +27,12 @@ window.addEventListener('wheel',e =>{
       }
       
     }
-    nav_display(mainPos);
-    ms_display();
+    nav_display(mainSec[mainPos].id);
+    ms_display(mainPos);
     setTimeout(()=>{
       canscroll = true;
     },transition_duration);
   }
-  
-  
 });
 let pre_touch;
 window.addEventListener('touchmove',e=>{
@@ -57,32 +55,37 @@ window.addEventListener('touchmove',e=>{
     },transition_duration);
   }
 });
-nav_li.forEach(e => {
+nav_li.forEach(function(e,index){
   e.addEventListener('click',()=>{
-    mainPos = parseInt(e.className.slice(-1))
-    nav_display(mainPos);
-    ms_display();
-  })
-  e.addEventListener('mouseover',()=>{
-    nav_display(parseInt(e.className.slice(-1)));
-  })
-  e.addEventListener('mouseleave',()=>{
-    nav_display(mainPos);
+    nav_display(e.id);
+    mainPos = index;
+    ms_display(mainPos);
   })
 });
 function nav_display(e){
-  if(e==mainPos){
-    nav_nav.style.backgroundColor = "aqua";
-    nav_nav.style.boxShadow = "2px 2px 10px 1px aqua"
-  }else{
-    nav_nav.style.backgroundColor = "red";
-    nav_nav.style.boxShadow = "2px 2px 10px 1px red"
+  nav_nav.className = `in_${e}`;
+}
+function ms_display(e){
+  switch(e){
+    case 0:
+      main.className = "in_home";
+      break;
+    case 1:
+      main.className = "in_profile";
+      break;
+    case 2:
+      main.className = "in_project";
+      break;
+    case 3:
+      main.className = "in_dailyLog";
+      break;
+    case 4:
+      main.className = "in_contect";
+      break;
   }
-  nav_nav.style.top = `calc(2rem * ${e} + 6vh*${e*2+1})`
 }
-function ms_display(){
-  main.style.top = `${mainPos*-100}vh`;
-}
+
+
 var cancursor=true
 window.addEventListener('mousedown' , e =>{
   if(e.button == 1){

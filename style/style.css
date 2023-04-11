@@ -33,6 +33,21 @@ main{
   box-sizing: border-box;
   transition: top var(--transition--duration);
 }
+main.in_home{
+  top: 0vh;
+}
+main.in_profile{
+  top: -100vh;
+}
+main.in_project{
+  top: -200vh;
+}
+main.in_dailyLog{
+  top: -300vh;
+}
+main.in_contect{
+  top: -400vh;
+}
 
 main section{
   width: 100%;
