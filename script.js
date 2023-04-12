@@ -104,7 +104,7 @@ window.addEventListener('mousedown' , e =>{
   }
 })//
 let cursor_p=[{x:0,y:0},{x:0,y:0},{x:0,y:0}]
-window.addEventListener("pointermove",e=>{
+window.addEventListener("mousemove",e=>{
   
   cursor_p[0].x=e.pageX;
   cursor_p[0].y=e.pageY;
@@ -114,10 +114,10 @@ function cursorEff (){
     e.style.top = cursor_p[index].y +index*15+"px";
     e.style.left =cursor_p[index].x +index*5+"px";
   })
-  cursor_p[2].x=(cursor_p[2].x-cursor_p[1].x)*0.6 +cursor_p[1].x;
-  cursor_p[2].y=(cursor_p[2].y-cursor_p[1].y)*0.6 +cursor_p[1].y;
-  cursor_p[1].x=(cursor_p[1].x-cursor_p[0].x)*0.6 +cursor_p[0].x;
-  cursor_p[1].y=(cursor_p[1].y-cursor_p[0].y)*0.6 +cursor_p[0].y;
+  cursor_p[2].x=(cursor_p[2].x-cursor_p[1].x)*0.3 +cursor_p[1].x;
+  cursor_p[2].y=(cursor_p[2].y-cursor_p[1].y)*0.3 +cursor_p[1].y;
+  cursor_p[1].x=(cursor_p[1].x-cursor_p[0].x)*0.3 +cursor_p[0].x;
+  cursor_p[1].y=(cursor_p[1].y-cursor_p[0].y)*0.3 +cursor_p[0].y;
 }
 function cursoranimate(){
   cursorEff();
