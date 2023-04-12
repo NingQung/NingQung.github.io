@@ -5,5 +5,7 @@
   cursor做了簡易click-fade-out效果，不過本體還沒想好
 2023/4/11 cursor
   拖動式cursor應該完成不過效能問題堪憂
-2023/4/12 cursor-fin?
+2023/4/12 cursor-fin,nav<ruby> add,homeElement ready
   優化cursor公式，不枉費把方舟官網翻到底朝天
+  將nav新增剛學到的ruby
+  home準備開始動工

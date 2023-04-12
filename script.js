@@ -1,9 +1,12 @@
+//2023/04/12 還沒整理
+
 const main = document.querySelector("main");
 const nav = document.querySelector("nav");
 const nav_li = document.querySelectorAll("li");
 const nav_nav = document.getElementById("nav_nav");
 const mainSec = document.querySelectorAll("main section");
 const cursor_circle = document.getElementById("cursor_circle");
+const cur_scr_container = document.getElementById("cur_scr_container");
 const cursor_bar = document.querySelectorAll("div.cursorbar");
 const transition_duration = 600;
 var canscroll = true;
@@ -27,12 +30,15 @@ window.addEventListener('wheel',e =>{
       }
       
     }
+    
     nav_display(mainSec[mainPos].id);
     ms_display(mainPos);
+    navtext_display(mainPos);
     setTimeout(()=>{
       canscroll = true;
     },transition_duration);
   }
+  scroll_anifunc(e.pageX,e.pageY,1);
 });
 let pre_touch;
 window.addEventListener('touchmove',e=>{
@@ -60,6 +66,7 @@ nav_li.forEach(function(e,index){
     nav_display(e.id);
     mainPos = index;
     ms_display(mainPos);
+    navtext_display(index);
   })
 });
 function nav_display(e){
@@ -77,11 +84,20 @@ function ms_display(e){
       main.className = "in_project";
       break;
     case 3:
-      main.className = "in_dailyLog";
+      main.className = "in_dayLog";
       break;
     case 4:
       main.className = "in_contect";
       break;
+  }
+}
+function navtext_display(e){
+  for(var i=0;i<5;i++){
+    if(i == e){
+      nav_li[i].className = "nav_active";
+    }else{
+      nav_li[i].className = "";
+    }
   }
 }
 
@@ -124,3 +140,13 @@ function cursoranimate(){
   window.requestAnimationFrame(cursoranimate);
 }
 cursoranimate();
+
+function scroll_anifunc(x,y,e){
+  cur_scr_container.style.top = y+"px";
+  cur_scr_container.style.left = x+"px";
+  cur_scr_container.className = "scroll_active";
+  setTimeout(()=>{
+    cur_scr_container.className = "";
+  },200)
+  
+}

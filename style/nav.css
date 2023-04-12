@@ -1,4 +1,6 @@
 nav{
+  --navli-padding-height: 6vh;
+  --navli-textbox-height: 2rem;
   width: 10vw;
   height: 100vh;
   position: fixed;
@@ -15,80 +17,85 @@ div#nav_ol_container{
   transform: translateY(-50%);
 }
 nav ol li{
-  height: 2rem;
+  height: var(--navli-textbox-height);
   font-size: 1rem;
+  font-weight: lighter;
   color: white;
-  text-shadow: 2px 2px 15px white;
+  text-shadow: -2px -2px 15px white;
   display: flex;
   align-items: center;
   position: relative;
-  padding: 6vh 0 6vh 2rem;
-  transition: padding 300ms;
+  padding: var(--navli-padding-height) 0 var(--navli-padding-height) 2rem;
+  transition: padding 300ms,color 200ms;
   z-index: 2;
 }
 nav ol li:hover{
   padding-left: 2.7rem;
 }
+nav ol li.nav_active{
+  color: aqua;
+
+}
 
 div#nav_nav{
   width: 5px;
-  height: 2rem;
+  height: var(--navli-textbox-height);
   box-sizing: border-box;
-  box-shadow: 2px 2px 10px 1px white;
+  box-shadow: -2px -2px 10px 1px white;
   border-radius: 10px;
   position: absolute;
   transition: all 0.2s;
   z-index: 1;
 }
 div#nav_nav.in_home{
-  top: 6vh;
+  top: var(--navli-padding-height);
   background-color: aqua;
-  box-shadow: 2px 2px 10px 1px aqua;
+  box-shadow: -2px -2px 10px 1px aqua;
 }
 div#nav_nav.in_profile{
-  top: calc(2rem * 1 + 6vh*3);
+  top: calc(var(--navli-textbox-height) * 1 + var(--navli-padding-height)*3);
   background-color: aqua;
-  box-shadow: 2px 2px 10px 1px aqua;
+  box-shadow: -2px -2px 10px 1px aqua;
 }
 div#nav_nav.in_project{
-  top: calc(2rem * 2 + 6vh*5);
+  top: calc(var(--navli-textbox-height) * 2 + var(--navli-padding-height)*5);
   background-color: aqua;
-  box-shadow: 2px 2px 10px 1px aqua;
+  box-shadow: -2px -2px 10px 1px aqua;
 }
-div#nav_nav.in_dailyLog{
-  top: calc(2rem * 3 + 6vh*7);
+div#nav_nav.in_dayLog{
+  top: calc(var(--navli-textbox-height) * 3 + var(--navli-padding-height)*7);
   background-color: aqua;
-  box-shadow: 2px 2px 10px 1px aqua;
+  box-shadow: -2px -2px 10px 1px aqua;
 }
 div#nav_nav.in_contect{
-  top: calc(2rem * 4 + 6vh*9);
+  top: calc(var(--navli-textbox-height) * 4 + var(--navli-padding-height)*9);
   background-color: aqua;
-  box-shadow: 2px 2px 10px 1px aqua;
+  box-shadow: -2px -2px 10px 1px aqua;
 }
 li#home:hover ~ div#nav_nav:not(.in_home){
-  top: 6vh;
+  top: var(--navli-padding-height);
   background-color: red;
-  box-shadow: 2px 2px 10px 1px red;
+  box-shadow: -2px -2px 10px 1px red;
 }
 li#profile:hover ~ div#nav_nav:not(.in_profile){
-  top: calc(2rem * 1 + 6vh*3);
+  top: calc(var(--navli-textbox-height) * 1 + var(--navli-padding-height)*3);
   background-color: red;
-  box-shadow: 2px 2px 10px 1px red;
+  box-shadow: -2px -2px 10px 1px red;
 }
 li#project:hover ~ div#nav_nav:not(.in_project){
-  top: calc(2rem * 2 + 6vh*5);
+  top: calc(var(--navli-textbox-height) * 2 + var(--navli-padding-height)*5);
   background-color: red;
-  box-shadow: 2px 2px 10px 1px red;
+  box-shadow: -2px -2px 10px 1px red;
 }
-li#dailyLog:hover ~ div#nav_nav:not(.in_dailyLog){
-  top: calc(2rem * 3 + 6vh*7);
+li#dayLog:hover ~ div#nav_nav:not(.in_dayLog){
+  top: calc(var(--navli-textbox-height) * 3 + var(--navli-padding-height)*7);
   background-color: red;
-  box-shadow: 2px 2px 10px 1px red;
+  box-shadow: -2px -2px 10px 1px red;
 }
 li#contect:hover ~ div#nav_nav:not(.in_contect){
-  top: calc(2rem * 4 + 6vh*9);
+  top: calc(var(--navli-textbox-height) * 4 + var(--navli-padding-height)*9);
   background-color: red;
-  box-shadow: 2px 2px 10px 1px red;
+  box-shadow: -2px -2px 10px 1px red;
 }
 div#navFooter{
   position: absolute;
