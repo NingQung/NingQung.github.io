@@ -18,7 +18,7 @@ nav ol li{
   height: 2rem;
   font-size: 1rem;
   color: white;
-  text-shadow: 2px 2px 5px white;
+  text-shadow: 2px 2px 15px white;
   display: flex;
   align-items: center;
   position: relative;
