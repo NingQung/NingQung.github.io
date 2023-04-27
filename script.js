@@ -6,12 +6,12 @@ const nav_li = document.querySelectorAll("li");
 const nav_nav = document.getElementById("nav_nav");
 const mainSec = document.querySelectorAll("main section");
 const cursor_circle = document.getElementById("cursor_circle");
-const cur_scr_container = document.getElementById("cur_scr_container");
 const cursor_bar = document.querySelectorAll("div.cursorbar");
 const transition_duration = 600;
 var canscroll = true;
 var cantouchmove = 0;
 var mainPos=0;
+var isload = 0;
 //#region initialize
 nav_display("home");
 ms_display(0);
@@ -38,7 +38,7 @@ window.addEventListener('wheel',e =>{
       canscroll = true;
     },transition_duration);
   }
-  scroll_anifunc(e.pageX,e.pageY,1);
+  //scroll_anifunc(e.pageX,e.pageY,1);
 });
 let pre_touch;
 window.addEventListener('touchmove',e=>{
@@ -87,7 +87,7 @@ function ms_display(e){
       main.className = "in_dayLog";
       break;
     case 4:
-      main.className = "in_contect";
+      main.className = "in_contact";
       break;
   }
 }
@@ -121,9 +121,14 @@ window.addEventListener('mousedown' , e =>{
 })//
 let cursor_p=[{x:0,y:0},{x:0,y:0},{x:0,y:0}]
 window.addEventListener("mousemove",e=>{
-  
   cursor_p[0].x=e.pageX;
   cursor_p[0].y=e.pageY;
+  if(isload == 0){
+    cursor_bar.forEach(e=>{
+      e.style.opacity = 1;
+    })
+    isload = 1;
+  }
 })
 function cursorEff (){
   cursor_bar.forEach(function(e,index){
@@ -140,13 +145,3 @@ function cursoranimate(){
   window.requestAnimationFrame(cursoranimate);
 }
 cursoranimate();
-
-function scroll_anifunc(x,y,e){
-  cur_scr_container.style.top = y+"px";
-  cur_scr_container.style.left = x+"px";
-  cur_scr_container.className = "scroll_active";
-  setTimeout(()=>{
-    cur_scr_container.className = "";
-  },200)
-  
-}

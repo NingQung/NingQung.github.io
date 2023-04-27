@@ -1,11 +1,13 @@
 nav{
-  --navli-padding-height: 6vh;
+  --navli-padding-height: 3vh;
   --navli-textbox-height: 2rem;
+  --navli-incolor: #00ff90;
+  --navli-notcolor: #bf93f5;
   width: 10vw;
   height: 100vh;
+  padding-left: 3vw;
   position: fixed;
   top: 0;
-  left: 3vw;
 }
 li a{
   text-decoration: none;
@@ -33,15 +35,14 @@ nav ol li:hover{
   padding-left: 2.7rem;
 }
 nav ol li.nav_active{
-  color: aqua;
-
+  color: var(--navli-incolor);
 }
 
 div#nav_nav{
   width: 5px;
   height: var(--navli-textbox-height);
   box-sizing: border-box;
-  box-shadow: -2px -2px 10px 1px white;
+  box-shadow: -2px -2px 10px 1px var(--navli-notcolor);
   border-radius: 10px;
   position: absolute;
   transition: all 0.2s;
@@ -49,53 +50,53 @@ div#nav_nav{
 }
 div#nav_nav.in_home{
   top: var(--navli-padding-height);
-  background-color: aqua;
-  box-shadow: -2px -2px 10px 1px aqua;
+  background-color: var(--navli-incolor);
+  box-shadow: -2px -2px 10px 1px var(--navli-incolor);
 }
 div#nav_nav.in_profile{
   top: calc(var(--navli-textbox-height) * 1 + var(--navli-padding-height)*3);
-  background-color: aqua;
-  box-shadow: -2px -2px 10px 1px aqua;
+  background-color: var(--navli-incolor);
+  box-shadow: -2px -2px 10px 1px var(--navli-incolor);
 }
 div#nav_nav.in_project{
   top: calc(var(--navli-textbox-height) * 2 + var(--navli-padding-height)*5);
-  background-color: aqua;
-  box-shadow: -2px -2px 10px 1px aqua;
+  background-color: var(--navli-incolor);
+  box-shadow: -2px -2px 10px 1px var(--navli-incolor);
 }
 div#nav_nav.in_dayLog{
   top: calc(var(--navli-textbox-height) * 3 + var(--navli-padding-height)*7);
-  background-color: aqua;
-  box-shadow: -2px -2px 10px 1px aqua;
+  background-color: var(--navli-incolor);
+  box-shadow: -2px -2px 10px 1px var(--navli-incolor);
 }
-div#nav_nav.in_contect{
+div#nav_nav.in_contact{
   top: calc(var(--navli-textbox-height) * 4 + var(--navli-padding-height)*9);
-  background-color: aqua;
-  box-shadow: -2px -2px 10px 1px aqua;
+  background-color: var(--navli-incolor);
+  box-shadow: -2px -2px 10px 1px var(--navli-incolor);
 }
 li#home:hover ~ div#nav_nav:not(.in_home){
   top: var(--navli-padding-height);
-  background-color: red;
-  box-shadow: -2px -2px 10px 1px red;
+  background-color: var(--navli-notcolor);
+  box-shadow: -2px -2px 10px 1px var(--navli-notcolor);
 }
 li#profile:hover ~ div#nav_nav:not(.in_profile){
   top: calc(var(--navli-textbox-height) * 1 + var(--navli-padding-height)*3);
-  background-color: red;
-  box-shadow: -2px -2px 10px 1px red;
+  background-color: var(--navli-notcolor);
+  box-shadow: -2px -2px 10px 1px var(--navli-notcolor);
 }
 li#project:hover ~ div#nav_nav:not(.in_project){
   top: calc(var(--navli-textbox-height) * 2 + var(--navli-padding-height)*5);
-  background-color: red;
-  box-shadow: -2px -2px 10px 1px red;
+  background-color: var(--navli-notcolor);
+  box-shadow: -2px -2px 10px 1px var(--navli-notcolor);
 }
 li#dayLog:hover ~ div#nav_nav:not(.in_dayLog){
   top: calc(var(--navli-textbox-height) * 3 + var(--navli-padding-height)*7);
-  background-color: red;
-  box-shadow: -2px -2px 10px 1px red;
+  background-color: var(--navli-notcolor);
+  box-shadow: -2px -2px 10px 1px var(--navli-notcolor);
 }
-li#contect:hover ~ div#nav_nav:not(.in_contect){
+li#contact:hover ~ div#nav_nav:not(.in_contact){
   top: calc(var(--navli-textbox-height) * 4 + var(--navli-padding-height)*9);
-  background-color: red;
-  box-shadow: -2px -2px 10px 1px red;
+  background-color: var(--navli-notcolor);
+  box-shadow: -2px -2px 10px 1px var(--navli-notcolor);
 }
 div#navFooter{
   position: absolute;
