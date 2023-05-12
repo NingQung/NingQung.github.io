@@ -8,13 +8,19 @@ const mainSec = document.querySelectorAll("main section");
 const cursor_circle = document.getElementById("cursor_circle");
 const cursor_bar = document.querySelectorAll("div.cursorbar");
 const transition_duration = 600;
-var canscroll = true;
+var canscroll = false;
 var cantouchmove = 0;
 var mainPos=0;
 var isload = 0;
 //#region initialize
 nav_display("home");
 ms_display(0);
+window.onload = () =>{
+  setTimeout(() => {
+    load_screen.className = "loadComplete";
+    canscroll = true;
+  }, 6000);
+}
 //#endregion
 window.addEventListener('wheel',e =>{
   if(canscroll){
@@ -40,27 +46,27 @@ window.addEventListener('wheel',e =>{
   }
   //scroll_anifunc(e.pageX,e.pageY,1);
 });
-let pre_touch;
-window.addEventListener('touchmove',e=>{
-  cantouchmove++
-  if(cantouchmove==1){
-    pre_touch = e.touches[0].clientY;
-  }else if(cantouchmove==2){
-    if(pre_touch - e.touches[0].clientY>0){
-      if(mainPos<4){
-        mainPos++;
-      }
-    }else{
-      if(mainPos>0){
-        mainPos--;
-      }
-    }
-    main.style.top = `${mainPos*-100}vh`;
-    setTimeout(()=>{
-      cantouchmove = 0;
-    },transition_duration);
-  }
-});
+// let pre_touch;
+// window.addEventListener('touchmove',e=>{
+//   cantouchmove++
+//   if(cantouchmove==1){
+//     pre_touch = e.touches[0].clientY;
+//   }else if(cantouchmove==2){
+//     if(pre_touch - e.touches[0].clientY>0){
+//       if(mainPos<4){
+//         mainPos++;
+//       }
+//     }else{
+//       if(mainPos>0){
+//         mainPos--;
+//       }
+//     }
+//     main.style.top = `${mainPos*-100}vh`;
+//     setTimeout(()=>{
+//       cantouchmove = 0;
+//     },transition_duration);
+//   }
+// });
 nav_li.forEach(function(e,index){
   e.addEventListener('click',()=>{
     nav_display(e.id);
