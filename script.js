@@ -12,16 +12,18 @@ var canscroll = false;
 var cantouchmove = 0;
 var mainPos=0;
 var isload = 0;
+
 //#region initialize
-nav_display("home");
-ms_display(0);
 window.onload = () =>{
   setTimeout(() => {
     load_screen.className = "loadComplete";
     canscroll = true;
   }, 6000);
+  nav_display("home");
+  ms_display(0);
 }
 //#endregion
+
 window.addEventListener('wheel',e =>{
   if(canscroll){
     canscroll = false;
@@ -36,7 +38,7 @@ window.addEventListener('wheel',e =>{
       }
       
     }
-    
+    console.log(mainPos);
     nav_display(mainSec[mainPos].id);
     ms_display(mainPos);
     navtext_display(mainPos);
@@ -125,7 +127,7 @@ window.addEventListener('mousedown' , e =>{
     },500);
   }
 })//
-let cursor_p=[{x:0,y:0},{x:0,y:0},{x:0,y:0}]
+let cursor_p=[{x:0,y:0},{x:0,y:0},{x:0,y:0}];
 window.addEventListener("mousemove",e=>{
   cursor_p[0].x=e.pageX;
   cursor_p[0].y=e.pageY;

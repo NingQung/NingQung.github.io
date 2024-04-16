@@ -8,7 +8,7 @@ nav{
   --navli-textbox-height: 2rem;
   --navli-incolor: #00ff90;
   --navli-notcolor: #bf93f5;
-  width: 10vw;
+  width: calc(5rem);
   height: 100vh;
   padding-left: 3vw;
   position: fixed;
